@@ -1,6 +1,6 @@
 ################################################################################
 #      This file is part of LibreELEC - https://libreelec.tv
-#      Copyright (C) 2016-2017 Team LibreELEC
+#      Copyright (C) 2017-present Team LibreELEC
 #
 #  LibreELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -16,13 +16,19 @@
 #  along with LibreELEC.  If not, see <http://www.gnu.org/licenses/>.
 ################################################################################
 
-PKG_NAME="libite"
-PKG_VERSION="1.8.3"
-PKG_LICENSE="MIT"
-PKG_SITE="https://github.com/troglobit/libite"
-PKG_URL="https://github.com/troglobit/libite/archive/v$PKG_VERSION.tar.gz"
-PKG_DEPENDS_TARGET="toolchain"
-PKG_LONGDESC="That missing frog DNA you've been looking for"
+PKG_NAME="mumudvb"
+PKG_VERSION="fa9ff6e"
+PKG_ARCH="any"
+PKG_LICENSE="GPL"
+PKG_SITE="http://mumudvb.net/"
+PKG_URL="https://github.com/braice/MuMuDVB/archive/$PKG_VERSION.tar.gz"
+PKG_SOURCE_DIR="MuMuDVB-${PKG_VERSION}*"
+PKG_DEPENDS_TARGET="toolchain libdvbcsa"
+PKG_SECTION="tools"
+PKG_SHORTDESC="MuMuDVB (Multi Multicast DVB) is a program that streams from DVB on a network using multicasting or unicast"
+PKG_LONGDESC="MuMuDVB (Multi Multicast DVB) is a program that streams from DVB on a network using multicasting or unicast"
 PKG_AUTORECONF="yes"
 
-PKG_CONFIGURE_OPTS_TARGET="--enable-static --disable-shared"
+makeinstall_target() {
+  :
+}

@@ -1,6 +1,6 @@
 ################################################################################
 #      This file is part of LibreELEC - https://libreelec.tv
-#      Copyright (C) 2016 Team LibreELEC
+#      Copyright (C) 2016-present Team LibreELEC
 #
 #  LibreELEC is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -17,8 +17,8 @@
 ################################################################################
 
 PKG_NAME="mono"
-PKG_VERSION="4.8.0.495"
-PKG_REV="102"
+PKG_VERSION="5.4.1.6"
+PKG_REV="109"
 PKG_ARCH="any"
 PKG_LICENSE="MIT"
 PKG_SITE="http://www.mono-project.com"
