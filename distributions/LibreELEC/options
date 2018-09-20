@@ -153,6 +153,9 @@
 # build and install iSCSI support - iscsistart (yes / no)
   ISCSI_SUPPORT="yes"
 
+# build and install cryptsetup (yes / no)
+  CRYPTSETUP_SUPPORT="yes"
+
 # Support for partitioning and formating disks in initramfs (yes / no)
 # This adds support for parted and mkfs.ext3/4 to initramfs for OEM usage
   INITRAMFS_PARTED_SUPPORT="no"
