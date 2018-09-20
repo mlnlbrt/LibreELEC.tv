@@ -197,6 +197,9 @@ $SCRIPTS/install network
 # Cryptsetup support
 [ "$CRYPTSETUP_SUPPORT" = "yes" ] && $SCRIPTS/install cryptsetup
 
+# Kexec-tools support
+[ "$KEXEC_TOOLS_SUPPORT" = "yes" ] && $SCRIPTS/install kexec-tools
+
 # Devtools... (not for Release)
 [ "$TESTING" = "yes" ] && $SCRIPTS/install testing
 

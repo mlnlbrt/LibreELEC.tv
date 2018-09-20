@@ -155,6 +155,9 @@
 
 # build and install cryptsetup (yes / no)
   CRYPTSETUP_SUPPORT="yes"
+#
+# build and install kexec-tools(yes / no)
+  KEXEC_TOOLS_SUPPORT="yes"
 
 # Support for partitioning and formating disks in initramfs (yes / no)
 # This adds support for parted and mkfs.ext3/4 to initramfs for OEM usage
