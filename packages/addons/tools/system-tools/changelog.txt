@@ -1,11 +1,47 @@
+109
+- added stress-ng
+
+108
+- added encfs and smartmontools
+- updated autossh to 1.4f
+- updated file to 5.33
+- updated htop to 3.0.0 Beta4
+- updated inotify-tools to 3.20.1
+- updated lm_sensors to 1c48b19
+- updated mc to 4.8.20
+- updated screen to 4.6.2
+- updated strace to 4.22
+- updated unrar to 5.6.3
+
+107
+- added dstat, htop and vim
+- updated difftools to 3.6
+- updated dtach to 0.9
+- updated fdupes to 1.6.1
+- updated file to 5.31
+- updated hd-idle to 1.05
+- updated hddtemp to 0.3-beta16
+- updated hid_mapper to 2.1.0
+- updated libmtp to 1.1.13
+- updated lm_sensors to 0d5ccf6
+- updated lshw to 2.18
+- updated mc to 4.8.19
+- updated mtpfs to fd3864d
+- updated p7zip to 16.02
+- updated strace to 4.17
+- updated unrar to 5.5.5
+
+106
+- updated screen, fix colors issue
+
 104
-- Bump file package
+- updated file package
 
 103
-- Add nmon
+- added nmon
 
 102
-- Add inotify-tools, mc
+- added inotify-tools, mc
 
 101
 - mrxvt can be started from KODI
