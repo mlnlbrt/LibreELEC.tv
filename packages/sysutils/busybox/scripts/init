@@ -695,7 +695,6 @@
           disk="$target/$OVERLAY_DIR,$options"
         fi
       fi
-      # TODO: try to mount disk-ov, then fallback to disk
       mount_part "$disk" "/storage" "rw,noatime"
     else
       # /storage should always be writable
