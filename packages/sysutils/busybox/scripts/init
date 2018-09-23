@@ -37,6 +37,19 @@
   # common functions
   . /functions
 
+  # check_ov function
+  check_ov() {
+    for i in 1 2 3 4 5; do
+      ERR_OV=1
+
+      findfs LABEL=${1#*=}-OV >/dev/null 2>&1
+      [ "$?" -eq "0" ] && ERR_OV=0 && break
+
+      usleep 1000000
+    done
+    return $ERR_OV
+  }
+
   # set needed variables
   MODULE_DIR=/usr/lib/modules
 
@@ -112,6 +125,9 @@
             ;;
           /dev/*|LABEL=*|UUID=*)
             RUN_FSCK_DISKS="$RUN_FSCK_DISKS $disk"
+            if [ $disk=='LABEL=*' ]; then
+                check_ov $disk && [ "$?" -eq "0" ] && disk=$disk-OV
+            fi
             ;;
         esac
         ;;
@@ -679,6 +695,7 @@
           disk="$target/$OVERLAY_DIR,$options"
         fi
       fi
+      # TODO: try to mount disk-ov, then fallback to disk
       mount_part "$disk" "/storage" "rw,noatime"
     else
       # /storage should always be writable
