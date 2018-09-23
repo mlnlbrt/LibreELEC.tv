@@ -348,6 +348,10 @@ post_makeinstall_target() {
   debug_strip $INSTALL/usr/lib/kodi/kodi.bin
 }
 
+post_unpack() {
+  patch -d $BUILD/$PKG_NAME-$PKG_VERSION/addons/skin.estuary -p1 < $PKG_DIR/files/games-shortcuts.patch
+}
+
 post_install() {
   enable_service kodi.target
   enable_service kodi-autostart.service
