@@ -49,4 +49,8 @@ if [ "$MEDIACENTER" = "kodi" ]; then
     PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET peripheral.joystick"
   fi
 
+  if [ "$DVDBACKUP_SUPPORT" = "yes" ]; then
+    PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET dvdbackup"
+  fi
+
 fi
