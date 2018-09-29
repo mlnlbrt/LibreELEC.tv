@@ -81,6 +81,46 @@ if [ "$DISPLAYSERVER" = "x11" ]; then
   FFMPEG_X11GRAB="--enable-indev=x11grab_xcb"
 fi
 
+if [ "$FFMPEG_EXTRA_ENCODERS_SUPPORT" = "yes" ]; then
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET x264 x265 lame"
+
+  PKG_FFMPEG_NONFREE="--enable-nonfree"
+  PKG_FFMPEG_MUXERS="--enable-muxers"
+
+  PKG_FFMPEG_VIDEO_ENCODERS="
+              --enable-libx264 \
+              --enable-encoder=libx264 \
+              --enable-libx265 \
+              --enable-encoder=libx265"
+
+  PKG_FFMPEG_AUDIO_ENCODERS="
+              --enable-encoder=eac3 \
+              --enable-encoder=flac \
+              --enable-libmp3lame \
+              --enable-encoder=libmp3lame"
+
+  PKG_FFMPEG_SUBTITLE_ENCODERS="
+              --enable-encoder=ass \
+              --enable-encoder=dvdsub \
+              --enable-encoder=srt \
+              --enable-encoder=subrip \
+              --enable-encoder=text \
+              --enable-encoder=webvtt \
+              --enable-encoder=xsub"
+else
+  PKG_FFMPEG_NONFREE="--disable-nonfree"
+  PKG_FFMPEG_MUXERS="
+              --disable-muxers \
+              --enable-muxer=spdif \
+              --enable-muxer=adts \
+              --enable-muxer=asf \
+              --enable-muxer=ipod \
+              --enable-muxer=mpegts"
+  PKG_FFMPEG_DISABLED_LIBS="
+              --disable-libx264 \
+              --disable-libmp3lame"
+fi
+
 pre_configure_target() {
   cd $ROOT/$PKG_BUILD
   rm -rf .$TARGET_NAME
@@ -123,7 +163,7 @@ configure_target() {
               --enable-shared \
               --enable-gpl \
               --disable-version3 \
-              --disable-nonfree \
+              $PKG_FFMPEG_NONFREE \
               --enable-logging \
               --disable-doc \
               $FFMPEG_DEBUG \
@@ -166,14 +206,12 @@ configure_target() {
               --enable-encoder=wmav2 \
               --enable-encoder=mjpeg \
               --enable-encoder=png \
+              $PKG_FFMPEG_VIDEO_ENCODERS \
+              $PKG_FFMPEG_AUDIO_ENCODERS \
+              $PKG_FFMPEG_SUBTITLE_ENCODERS \
               --disable-decoder=mpeg_xvmc \
               --enable-hwaccels \
-              --disable-muxers \
-              --enable-muxer=spdif \
-              --enable-muxer=adts \
-              --enable-muxer=asf \
-              --enable-muxer=ipod \
-              --enable-muxer=mpegts \
+              $PKG_FFMPEG_MUXERS \
               --enable-demuxers \
               --enable-parsers \
               --enable-bsfs \
@@ -191,7 +229,6 @@ configure_target() {
               --disable-libfaac \
               --disable-libfreetype \
               --disable-libgsm \
-              --disable-libmp3lame \
               --disable-libnut \
               --disable-libopenjpeg \
               --disable-librtmp \
@@ -201,9 +238,9 @@ configure_target() {
               --disable-libvo-amrwbenc \
               --disable-libvorbis \
               --disable-libvpx \
-              --disable-libx264 \
               --disable-libxavs \
               --disable-libxvid \
+              $PKG_FFMPEG_DISABLED_LIBS \
               --enable-zlib \
               --enable-asm \
               --disable-altivec \

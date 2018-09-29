@@ -46,6 +46,9 @@
 # build and install dvdbackup support (yes / no)
   DVDBACKUP_SUPPORT="yes"
 
+# build and install ffmpeg with extra encoders (yes / no)
+  FFMPEG_EXTRA_ENCODERS_SUPPORT="yes"
+
 # build and install with non-free support
 # (RAR compression support in KODI) (yes / no)
   KODI_NONFREE_SUPPORT="yes"
