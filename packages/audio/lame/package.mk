@@ -32,6 +32,7 @@ PKG_AUTORECONF="no"
 
 # package specific configure options
 PKG_CONFIGURE_OPTS_TARGET="--enable-static \
+                           --enable-pic \
                            --disable-shared \
                            --disable-nasm \
                            --disable-rpath \
