@@ -1,0 +1,22 @@
+--- a/configure.ac	2018-09-29 08:57:42.589907481 +0200
++++ b/configure.ac	2018-09-29 08:57:57.373239857 +0200
+@@ -15,7 +15,7 @@
+ AC_CONFIG_MACRO_DIR([m4])
+ AM_INIT_AUTOMAKE([dist-xz -Wall -Werror])
+ 
+-AM_GNU_GETTEXT_VERSION([0.17])
++AM_GNU_GETTEXT_VERSION([0.19])
+ AM_GNU_GETTEXT([external])
+ 
+ AM_MAINTAINER_MODE
+@@ -78,9 +78,8 @@
+ dnl Checks for library functions
+ dnl ----------------------------------------------------------
+ 
+-AC_FUNC_MALLOC
+ AC_FUNC_STAT
+-AC_CHECK_FUNCS([mkdir setlocale strstr])
++AC_CHECK_FUNCS([malloc mkdir setlocale strstr])
+ 
+ dnl ----------------------------------------------------------
+ dnl Checks for system services
