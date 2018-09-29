@@ -3,7 +3,6 @@
 
 PKG_NAME="x264"
 PKG_VERSION="snapshot-20180627-2245"
-PKG_SHA256="4fa2bcd818fa0ec197c027b3d38ba587ebc4cfb956c2b24deb37e69a46999daf"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.videolan.org/developers/x264.html"
@@ -13,7 +12,7 @@ PKG_SECTION="multimedia"
 PKG_LONGDESC="x264"
 
 pre_configure_target() {
-  cd $PKG_BUILD
+  cd $ROOT/$PKG_BUILD
   rm -rf .$TARGET_NAME
 }
 
