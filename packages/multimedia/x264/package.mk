@@ -2,7 +2,7 @@
 # Copyright (C) 2016-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="x264"
-PKG_VERSION="snapshot-20180627-2245"
+PKG_VERSION="snapshot-20170520-2245"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
 PKG_SITE="http://www.videolan.org/developers/x264.html"
@@ -10,6 +10,13 @@ PKG_URL="https://download.videolan.org/x264/snapshots/$PKG_NAME-$PKG_VERSION.tar
 PKG_DEPENDS_TARGET="toolchain"
 PKG_SECTION="multimedia"
 PKG_LONGDESC="x264"
+
+if [ "$TARGET_ARCH" = x86_64 ]; then
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET yasm:host"
+  export AS=$ROOT/$TOOLCHAIN/bin/yasm
+else
+  PKG_X264_ASM="--disable-asm"
+fi
 
 pre_configure_target() {
   cd $ROOT/$PKG_BUILD
@@ -24,7 +31,7 @@ configure_target() {
     --disable-cli \
     --enable-static \
     --enable-strip \
-    --disable-asm \
+    $PKG_X264_ASM \
     --enable-pic \
     --host="$TARGET_NAME" \
     --cross-prefix="$TARGET_PREFIX" \
