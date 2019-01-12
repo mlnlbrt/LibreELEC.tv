@@ -50,7 +50,7 @@ if [ "$MEDIACENTER" = "kodi" ]; then
   fi
 
   if [ "$DVDBACKUP_SUPPORT" = "yes" ]; then
-    PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET dvdbackup"
+    PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET dvdbackup lsdvd"
   fi
 
 fi
