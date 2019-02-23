@@ -200,6 +200,9 @@ $SCRIPTS/install network
 # Kexec-tools support
 [ "$KEXEC_TOOLS_SUPPORT" = "yes" ] && $SCRIPTS/install kexec-tools
 
+# Smartmontools support
+[ "$SMARTMONTOOLS_SUPPORT" = "yes" ] && $SCRIPTS/install smartmontools
+
 # Devtools... (not for Release)
 [ "$TESTING" = "yes" ] && $SCRIPTS/install testing
 
